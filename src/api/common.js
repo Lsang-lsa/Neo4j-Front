@@ -2,10 +2,13 @@ import axios from 'axios'
 export function request(config) {
   // 1.创建axios的实例
   const instance = axios.create({
-      baseURL:"/",
+    baseURL: "/",
     timeout: 5000,
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+    },
   })
-    // 2.1.请求拦截的作用
+  // 2.1.请求拦截的作用
   instance.interceptors.request.use(config => {
     return config
   }, err => {
